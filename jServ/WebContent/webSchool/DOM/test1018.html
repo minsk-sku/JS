@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>이름:<input id="name" type="text"><br>
+        Id:<input id="id" type="text"><br>
+        password:<input id="password" type="text"><br>
+    
+        <button id="bc" onclick="myForm()">submit</button></form>
+
+    
+
+    <script>
+        var conf = document.getElementById("bc");
+        conf.addEventListener("submit", myForm);
+
+
+        function myForm() {
+            var nm = document.getElementById("name").value;
+            var idc = document.getElementById("id").value;
+            var pw = document.getElementById("password").value;
+            alert(nm+"|"+idc+"|"+pw
+            );
+        }
+
+    </script>
+
+</body>
+
+</html>

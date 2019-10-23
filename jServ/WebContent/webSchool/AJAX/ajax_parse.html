@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax_parse.html</title>
+</head>
+
+<body>
+    <p id="show"></p>
+    <script>
+        var xhtp = new XMLHttpRequest();
+        xhtp.onreadystatechange = function () {
+            if (xhtp.readyState == 4 && xhtp.status == 200) {
+                var obj = JSON.parse(this.responseText);
+                createTable(obj);
+            }
+        }
+        xhtp.open("get", "MOCK_DATA.json");
+        xhtp.send();
+        function createTable(obj) {
+            console.log(obj);
+            var table = document.createElement("table");
+            table.setAttribute("border", 1);
+            for (var i = 0; i < obj.length; i++) {
+                var tr = document.createElement("tr");
+                console.log(obj[i])
+                for (field in obj[i]) {
+                    var td = document.createElement("td");
+                    var val = document.createTextNode(obj[i][field]);
+                    td.appendChild(val);
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+            var show = document.getElementById("show");
+            show.append(table);
+        }
+    </script>
+</body>
+
+</html>

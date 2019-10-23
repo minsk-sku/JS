@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <!-- <script src="../js/jquery.min.js"></script> 상위 폴더에 있을 경우, 상대경로 -->
+    <script>
+        $(document).ready(function () {
+            // $("#btn1").click(function () {
+            //     $("h2").hide();
+            // })
+            // $("#btn2").click(function () {
+            //     $("p").hide();
+            // })
+
+            // // $("p:first").click(function(){ //p 태그 중 첫번째
+            // // $("p.int").click(function(){  //p 태그 중 int 클래스
+            // // $("p").eq(0).click(function(){ //p 태그 중 첫번째
+            // //     console.log(this)
+            //     // $(this).hide();
+            // })
+            var elem = $("p").eq(0);
+            elem.click(function () {
+                console.log(this);
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <h2>a heading</h2>
+    <p class="int">a Paragraph</p>
+    <p>a Another</p>
+    <h2 class="int"></h2>
+    <button id="btn1">Click</button>
+    <button id="btn2">Click</button>
+</body>
+
+</html>

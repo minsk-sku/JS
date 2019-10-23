@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        // pop(last)뒤에서 부터 하나씩 뻄, shift(first) 앞에서 부터 하나씩 뺌
+        var len = fruits.length
+        for (var i = 0; i < len; i++) {
+            console.log(fruits.join(",")); // 각 문자를 연결하겠다 ex -> Banana,Orange,Apple,Mango
+            fruits.shift();
+        }
+        // push(맨뒤 넣기), unshift(맨앞 넣기)
+        fruits.push("Kiwi")
+        fruits.unshift("Strawberry")
+        console.log(fruits.join("+"));
+    </script>
+</body>
+
+</html>

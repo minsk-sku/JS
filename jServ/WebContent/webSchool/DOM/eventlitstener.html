@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">click</button>
+    <p id="show"></p>
+    <input id="display" type="text">
+
+
+
+    <script>
+        var btn = document.getElementById("btn");
+        btn.addEventListener("click", displayDate);
+        function displayDate() {
+            var ddd = new Date();
+            document.getElementById("display").value = ddd.getFullYear() + "|" +
+                ddd.getMonth() + "|" + ddd.getDate() + "|" + ddd.getHours() + "|" + ddd.getMinutes();
+        }
+
+
+
+    </script>
+</body>
+
+</html>

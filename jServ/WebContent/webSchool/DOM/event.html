@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div onmouseover="mOver(this)" onmouseout="mOut(this)"
+        style="background-color:red; width:120px; height:20px; padding: -40px;">mouse over</div>
+    <br><br>
+    <div onmousedown="mDown(this)" onmouseup="mUp(this)"
+        style="background-color:red; width:120px; height:20px; padding: -40px;">click</div>
+    name:<input type="text" onfocus="ofocus(this)" onblur="oblur(this)" id="fname">
+    <br>
+    <script>
+
+        function mOver(a) {
+            console.log(a);
+            a.innerHTML = "thank you";
+        }
+
+        function mDown(a) {
+            a.style.backgroundColor = "yellow";
+            a.innerHTML = "thank you";
+        }
+        function mUp(a) {
+            a.style.backgroundColor = "red";
+            a.innerHTML = "click";
+
+        }
+
+        function mOut(a) {
+            console.log(a);
+            a.innerHTML = "mouse over";
+        }
+
+
+        function ofocus(a) {
+           var elem=document.getElementById("fname");
+            elem.style.backgroundColor="yellow";
+
+        }
+
+        function oblur(a) {
+            a.style.backgroundColor = "white";
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

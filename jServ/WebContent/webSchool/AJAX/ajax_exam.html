@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body id="bdy">
+
+    <button onclick="loadXML()">Get XML</button><br>
+    <p id="showXML"></p>
+
+    <script>
+
+
+        function loadXML() {
+
+            var xhtp = new XMLHttpRequest();
+            xhtp.onreadystatechange = function () {
+                if (xhtp.readyState == 4 && xhtp.status == 200) {
+                    createTable();
+                    getXML(this);
+
+                }
+            }
+            xhtp.open("get", "cd_catalog.xml");
+            xhtp.send();
+
+        }
+
+        function createTable() {
+
+
+            var $table = document.createElement("table");
+            // $table.setAttribute({ "id": "tbl", "border": "1" });
+            $table.setAttribute("id", "tbl");
+            $table.setAttribute("border", "1");
+            var th1 = document.createElement("th");
+            var val1 = document.createTextNode("Title");
+            th1.appendChild(val1);
+            var th2 = document.createElement("th");
+            var val2 = document.createTextNode("Atist");
+            th2.appendChild(val2);
+            var th3 = document.createElement("th");
+            var val3 = document.createTextNode("Country");
+            th3.appendChild(val3);
+            var th4 = document.createElement("th");
+            var val4 = document.createTextNode("Company");
+            th4.appendChild(val4);
+            var th5 = document.createElement("th");
+            var val5 = document.createTextNode("Price");
+            th5.appendChild(val5);
+            var th6 = document.createElement("th");
+            var val6 = document.createTextNode("Year");
+            th6.appendChild(val6);
+
+
+            var tr = document.createElement("tr");
+            tr.append(th1, th2, th3, th4, th5, th6);
+            $table.append(tr);
+
+            document.getElementById("bdy").append($table);
+
+        }
+
+
+        function getXML(elem) {
+            console.log(elem.responseXML);
+            var xml = elem.responseXML;
+            var cds = xml.getElementsByTagName("CD");
+            console.log(cds[0].childNodes[1].childNodes[0].nodeValue);
+            var fields = cds[0].childNodes.length;
+            var tag = "<table border=1>";
+
+            for (var i = 0; i < cds.length; i++) {
+                tag += "<tr>";
+                for (var j = 0; j < fields; j++) {
+                    if (j % 2 == 0) {
+                        tag += "<td>" + cds[i].childNodes[j].childNodes[0].nodeValue + "</td>";
+                    }
+                    tag += "</tr>";
+                }
+                document.getElementById("showXML").innerHTML = tag;
+            } tag += "</table>";
+
+
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

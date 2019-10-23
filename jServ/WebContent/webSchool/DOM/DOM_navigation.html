@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body id="bdy">
+    <h1 id="id01">myPage</h1>
+    <h2 id="second">secondPage</h2>
+    thirdPage
+    <div id="div">
+        <hi id="h1">myPage(1)</hi>
+        <H2 ID="H2">secondPage</H2>
+
+
+    </div>
+
+
+
+    <p style="color:red" ; id="id02"></p>
+    <p style="color:blue" ; id="id03"></p>
+    <script>
+        console.log(this);
+        //document.getElementById("id02").innerHTML=document.getElementById("id01").innerHTML;
+        document.getElementById("id02").innerHTML = document.getElementById("id01").firstChild.nodeValue;
+        document.getElementById("id02").innerHTML = document.getElementById("id01").childNodes[0].nodeValue;
+        document.getElementById("id03").innerHTML =
+            //document.getElementById("bdy").childNodes[3].childNodes[0].nodeValue;
+            //document.getElementById("bdy").childNodes[1].nodeValue;
+            //document.getElementById("h1").parentNode.parentNode.childNodes[3].childNodes[0].nodeValue;
+            document.getElementById("bdy").parentNode.previousSibling.nodeValue; //nextSibling
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

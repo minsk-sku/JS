@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="cal">
+        <script>
+            var d = new Date(2019, 1, 05);
+            console.log(d.getUTCFullYear() + (d.getMonth() + 1) + d.getDate() + d.getDay());
+            var tag = "<table border=1>";
+            tag += "<tr><th>년</th><th>월</th></tr><tr><th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th></tr>";
+            tag += "</table>";
+            document.getElementById("cal").innerHTML = tag;
+
+
+
+
+
+            var ye = prompt("연도 입력");
+            var mo = prompt("월 입력");
+
+
+            var sdt = new Date(ye, mo - 1, 1);
+            var ld = new Date(ye, mo, 0);
+
+
+            var tag = "<table border=1>";
+            tag += "<tr><th colspan=2>" + ye + "</th><th>년</th><th>" + mo + "</th><th>월</th></tr><tr><th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th></tr>";
+            tag += "<tr>";
+
+            for (var i = 0; i < sdt.getDay(); i++) {
+
+                tag += "<td></td>";
+
+            }
+            for (var i = 1; i <= ld.getDate(); i++) {
+                tag += "<td>" + i + "</td>";
+                if ((sdt.getDay() + i) % 7 == 0) {
+
+                    tag += "</tr><tr>";
+                }
+
+
+
+
+
+
+
+
+            }
+            tag += "</table>";
+            document.getElementById("cal").innerHTML = tag;
+
+        </script>
+
+
+
+    </div>
+
+
+
+
+
+</body>
+
+</html>
+</body>
+
+</html>
